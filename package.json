@@ -1,6 +1,6 @@
 {
   "name": "carambar-back",
-  "type":"module",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,8 @@
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
     "sequelize": "^6.37.7",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   }
 }

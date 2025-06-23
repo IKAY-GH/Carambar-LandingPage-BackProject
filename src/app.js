@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import blaguesRoutes from "../routes/blaguesRoutes.js";
 import sequelize from '../config/database.js';
 import blague from '../models/blague.js';  // à conserver si utile pour init
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 
 
 // Charger les variables d’environnement
@@ -37,6 +39,10 @@ const logErrors = (err, req, res, next) => {
 // Mount the logErrors middleware globally
 app.use(logErrors);
 
+// Branchement de swagger
+const swaggerDocument = YAML.load('./swagger.yaml');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // Synchroniser la BDD et lancer le serveur
 const port = process.env.PORT || 3000;
 
@@ -46,5 +52,6 @@ sequelize.sync().then(() => {
     console.log(`Server is running on port ${port}`);
   });
 });
+
 
 

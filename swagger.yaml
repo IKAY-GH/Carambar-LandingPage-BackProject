@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: API Carambar
+  description: API blagues Carambar
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000/api/v1
+
+paths:
+  /blagues:
+    get:
+      summary: Récupère toutes les blagues
+      responses:
+        '200':
+          description: Liste des blagues
+
+    post:
+      summary: Crée une nouvelle blague
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                question:
+                  type: string
+                answer:
+                  type: string
+      responses:
+        '201':
+          description: Blague créée
+  /blagues/random:
+    get:
+      summary: Récupère une blague aléatoire
+      responses:
+        '200':
+          description: Blague au hasard        
+
+  /blagues/{id}:
+    get:
+      summary: Récupère une blague par ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Détails de la blague
+        '404':
+          description: Blague non trouvée
+
+  
