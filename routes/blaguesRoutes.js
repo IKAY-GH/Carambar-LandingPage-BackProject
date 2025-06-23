@@ -33,6 +33,32 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/random", async (req, res) => {
+  try {
+    const count = await blague.count();
+    const randomIndex = Math.floor(Math.random() * count);
+    const blagueAleatoire = await blague.findOne({ offset: randomIndex });
+    res.json(blagueAleatoire);
+  } catch (error) {
+    console.error("Erreur lors de la récupération aléatoire :", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const blagueUnique = await blague.findByPk(req.params.id);
+    if (blagueUnique) {
+      res.json(blagueUnique);
+    } else {
+      res.status(404).json({ message: "Blague non trouvée" });
+    }
+  } catch (error) {
+    console.error("Erreur lors de la récupération de la blague :", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+});
+
 router.get("")
 
 export default router;
