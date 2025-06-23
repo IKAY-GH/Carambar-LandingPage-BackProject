@@ -7,7 +7,6 @@ import blague from '../models/blague.js';  // à conserver si utile pour init
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
 
-
 // Charger les variables d’environnement
 dotenv.config();
 
@@ -23,6 +22,7 @@ if (process.env.CLIENT_URL != null) {
 }
 
 // Routes
+
 
 app.use('/api/v1/blagues', blaguesRoutes);
 
@@ -52,6 +52,3 @@ sequelize.sync().then(() => {
     console.log(`Server is running on port ${port}`);
   });
 });
-
-
-
