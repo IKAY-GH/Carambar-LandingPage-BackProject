@@ -5,6 +5,7 @@ import blaguesRoutes from "../routes/blaguesRoutes.js";
 import sequelize from '../config/database.js';
 import blague from '../models/blague.js';  // à conserver si utile pour init
 
+
 // Charger les variables d’environnement
 dotenv.config();
 
@@ -21,7 +22,7 @@ if (process.env.CLIENT_URL != null) {
 
 // Routes
 
-app.use('/blagues', blaguesRoutes);
+app.use('/api/v1/blagues', blaguesRoutes);
 
 // Define a middleware function to log errors
 const logErrors = (err, req, res, next) => {
@@ -45,6 +46,5 @@ sequelize.sync().then(() => {
     console.log(`Server is running on port ${port}`);
   });
 });
-
 
 
