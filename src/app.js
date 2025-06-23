@@ -44,7 +44,7 @@ const swaggerDocument = YAML.load('./swagger.yaml');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Synchroniser la BDD et lancer le serveur
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 sequelize.sync().then(() => {
   console.log('Database synced');
