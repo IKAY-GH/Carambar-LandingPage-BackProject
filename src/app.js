@@ -18,7 +18,7 @@ app.use(express.json());
 
 // CORS dynamique (si variable définie)
 if (process.env.CLIENT_URL != null) {
-  app.use(cors({ origin: [process.env.CLIENT_URL] }));
+  app.use(cors({ origin: 'https://ikay-gh.github.io' }));
 }
 
 // Routes
