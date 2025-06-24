@@ -14,10 +14,7 @@ const app = express();
 
 app.use(express.json());
 
-
-
-  app.use(cors({ origin: 'https://ikay-gh.github.io' }));
-
+app.use(cors({ origin: 'https://ikay-gh.github.io' }));
 
 app.use('/api/v1/blagues', blaguesRoutes);
 
