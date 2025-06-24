@@ -21,9 +21,9 @@ const seed = async () => {
     const count = await Blague.count();
     if (count === 0) {
       await Blague.bulkCreate(blagues);
-      console.log(" Blagues ajoutées avec succès !");
+      console.log(" Blagues ajoutées !");
     } else {
-      console.log(" Les blagues existent déjà, rien à faire.");
+      console.log(" Les blagues existent déjà, RAS");
     }
 
     process.exit();
